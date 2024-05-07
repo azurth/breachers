@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Esp"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Breachers
+  Version: 
+  Date   : 2024-02-11
+  Author : dcleo
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,GameAssembly.dll,48 83 EC 28 48 8B 41 40 48 85 C0 74 0B 8B 80 4C) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub rsp,28
+  mov rax,[rcx+40]
+  jmp return
+
+INJECT:
+db b8 01 00 00 00 c3
+
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 48 83 EC 28 48 8B 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+C5E7C0
+
+GameAssembly.dll+C5E7AE: E8 6D FD 6F FF        - call GameAssembly.il2cpp_value_box+20
+GameAssembly.dll+C5E7B3: 48 8B 5C 24 20        - mov rbx,[rsp+20]
+GameAssembly.dll+C5E7B8: CC                    - int 3 
+GameAssembly.dll+C5E7B9: CC                    - int 3 
+GameAssembly.dll+C5E7BA: CC                    - int 3 
+GameAssembly.dll+C5E7BB: CC                    - int 3 
+GameAssembly.dll+C5E7BC: CC                    - int 3 
+GameAssembly.dll+C5E7BD: CC                    - int 3 
+GameAssembly.dll+C5E7BE: CC                    - int 3 
+GameAssembly.dll+C5E7BF: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+C5E7C0: 48 83 EC 28           - sub rsp,28
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+C5E7C4: 48 8B 41 40           - mov rax,[rcx+40]
+GameAssembly.dll+C5E7C8: 48 85 C0              - test rax,rax
+GameAssembly.dll+C5E7CB: 74 0B                 - je GameAssembly.dll+C5E7D8
+GameAssembly.dll+C5E7CD: 8B 80 4C 01 00 00     - mov eax,[rax+0000014C]
+GameAssembly.dll+C5E7D3: 48 83 C4 28           - add rsp,28
+GameAssembly.dll+C5E7D7: C3                    - ret 
+GameAssembly.dll+C5E7D8: 48 8D 0D F9 B2 9D 03  - lea rcx,[GameAssembly.dll+4639AD8]
+GameAssembly.dll+C5E7DF: 48 89 5C 24 20        - mov [rsp+20],rbx
+GameAssembly.dll+C5E7E4: E8 27 FB 6F FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+C5E7E9: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"No Smoke Grenade"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Breachers
+  Version: 
+  Date   : 2024-02-11
+  Author : dcleo
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,GameAssembly.dll,BE FF CC CC CC CC CC CC CC CC 48 83 EC 28 48 8B 41 40) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub rsp,28
+  mov rax,[rcx+40]
+  jmp return
+
+INJECT+0A:
+db b8 01 00 00 00 c3
+
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT+0A:
+  db 48 83 EC 28 48 8B 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Breachers.Gadgets.NetSmokeField.get_NET_DestroyTimer
+
+GameAssembly.dll+77D5D2: 90                    - nop 
+GameAssembly.dll+77D5D3: E8 88 0F BE FF        - call GameAssembly.il2cpp_value_box+60
+GameAssembly.dll+77D5D8: CC                    - int 3 
+GameAssembly.dll+77D5D9: CC                    - int 3 
+GameAssembly.dll+77D5DA: CC                    - int 3 
+GameAssembly.dll+77D5DB: CC                    - int 3 
+GameAssembly.dll+77D5DC: CC                    - int 3 
+GameAssembly.dll+77D5DD: CC                    - int 3 
+GameAssembly.dll+77D5DE: CC                    - int 3 
+GameAssembly.dll+77D5DF: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+Breachers.Gadgets.NetSmokeField.get_NET_DestroyTimer: 48 83 EC 28           - sub rsp,28
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+77D5E4: 48 8B 41 40           - mov rax,[rcx+40]
+GameAssembly.dll+77D5E8: 48 85 C0              - test rax,rax
+GameAssembly.dll+77D5EB: 74 07                 - je GameAssembly.dll+77D5F4
+GameAssembly.dll+77D5ED: 8B 00                 - mov eax,[rax]
+GameAssembly.dll+77D5EF: 48 83 C4 28           - add rsp,28
+GameAssembly.dll+77D5F3: C3                    - ret 
+GameAssembly.dll+77D5F4: 48 8D 0D DD C4 EB 03  - lea rcx,[GameAssembly.dll+4639AD8]
+GameAssembly.dll+77D5FB: 48 89 5C 24 20        - mov [rsp+20],rbx
+GameAssembly.dll+77D600: E8 0B 0D BE FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+77D605: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"No Syringe Cooldown"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Breachers
+  Version: 
+  Date   : 2024-02-12
+  Author : dcleo
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,46 DD 34 FF 48 8B 5C 24 20 CC 48 83 EC 28 48 8B 41 40) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub rsp,28
+  mov rax,[rcx+40]
+  jmp return
+
+INJECT+0A:
+db b8 01 00 00 00 c3
+
+
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+0A:
+  db 48 83 EC 28 48 8B 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Breachers.NetHealSyringe.get_NET_CooldownTimer
+
+GameAssembly.dll+10107B8: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+10107BB: 48 8B CB              - mov rcx,rbx
+GameAssembly.dll+10107BE: E8 FD 8F 28 01        - call System.InvalidOperationException..ctor
+GameAssembly.dll+10107C3: 48 8D 0D CE 03 5F 03  - lea rcx,[GameAssembly.dll+4600B98]
+GameAssembly.dll+10107CA: E8 41 DB 34 FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+10107CF: 48 8B D0              - mov rdx,rax
+GameAssembly.dll+10107D2: 48 8B CB              - mov rcx,rbx
+GameAssembly.dll+10107D5: E8 46 DD 34 FF        - call GameAssembly.il2cpp_value_box+20
+GameAssembly.dll+10107DA: 48 8B 5C 24 20        - mov rbx,[rsp+20]
+GameAssembly.dll+10107DF: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+Breachers.NetHealSyringe.get_NET_CooldownTimer: 48 83 EC 28           - sub rsp,28
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+10107E4: 48 8B 41 40           - mov rax,[rcx+40]
+GameAssembly.dll+10107E8: 48 85 C0              - test rax,rax
+GameAssembly.dll+10107EB: 74 08                 - je GameAssembly.dll+10107F5
+GameAssembly.dll+10107ED: 8B 40 38              - mov eax,[rax+38]
+GameAssembly.dll+10107F0: 48 83 C4 28           - add rsp,28
+GameAssembly.dll+10107F4: C3                    - ret 
+GameAssembly.dll+10107F5: 48 8D 0D DC 92 62 03  - lea rcx,[GameAssembly.dll+4639AD8]
+GameAssembly.dll+10107FC: 48 89 5C 24 20        - mov [rsp+20],rbx
+GameAssembly.dll+1010801: E8 0A DB 34 FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+1010806: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Unlimited Breaching Foam Charges"</Description>
+      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"1g"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Breachers
+  Version: 
+  Date   : 2024-02-12
+  Author : dcleo
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,GameAssembly.dll,9D FF 48 8B 5C 24 20 CC 48 83 EC 28 48 8B 41 40) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub rsp,28
+  mov rax,[rcx+40]
+  jmp return
+
+INJECT+08:
+db b8 01 00 00 00 c3
+
+
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT+08:
+  db 48 83 EC 28 48 8B 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Breachers.Weapon.NetBreachingFoam.set_NET_Charges
+
+GameAssembly.dll+984E68: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+984E6B: 48 8B CB              - mov rcx,rbx
+GameAssembly.dll+984E6E: E8 4D 49 91 01        - call System.InvalidOperationException..ctor
+GameAssembly.dll+984E73: 48 8D 0D 66 39 C9 03  - lea rcx,[GameAssembly.dll+46187E0]
+GameAssembly.dll+984E7A: E8 91 94 9D FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+984E7F: 48 8B D0              - mov rdx,rax
+GameAssembly.dll+984E82: 48 8B CB              - mov rcx,rbx
+GameAssembly.dll+984E85: E8 96 96 9D FF        - call GameAssembly.il2cpp_value_box+20
+GameAssembly.dll+984E8A: 48 8B 5C 24 20        - mov rbx,[rsp+20]
+GameAssembly.dll+984E8F: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+Breachers.Weapon.NetBreachingFoam.set_NET_Charges: 48 83 EC 28           - sub rsp,28
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+984E94: 48 8B 41 40           - mov rax,[rcx+40]
+GameAssembly.dll+984E98: 48 85 C0              - test rax,rax
+GameAssembly.dll+984E9B: 74 08                 - je GameAssembly.dll+984EA5
+GameAssembly.dll+984E9D: 89 50 3C              - mov [rax+3C],edx
+GameAssembly.dll+984EA0: 48 83 C4 28           - add rsp,28
+GameAssembly.dll+984EA4: C3                    - ret 
+GameAssembly.dll+984EA5: 48 8D 0D 2C 4C CB 03  - lea rcx,[GameAssembly.dll+4639AD8]
+GameAssembly.dll+984EAC: 48 89 5C 24 20        - mov [rsp+20],rbx
+GameAssembly.dll+984EB1: E8 5A 94 9D FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+984EB6: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"2s"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Breachers
+  Version: 
+  Date   : 2024-02-12
+  Author : dcleo
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,GameAssembly.dll,48 83 EC 28 48 8B 41 40 48 85 C0 74 08 8B 40 3C 48 83 C4 28 C3 48 8D 0D 9C) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub rsp,28
+  mov rax,[rcx+40]
+  jmp return
+
+INJECT:
+db b8 01 00 00 00 c3
+
+
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 48 83 EC 28 48 8B 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Breachers.Weapon.NetBreachingFoam.get_NET_Charges
+
+GameAssembly.dll+984E16: CC                    - int 3 
+GameAssembly.dll+984E17: CC                    - int 3 
+GameAssembly.dll+984E18: CC                    - int 3 
+GameAssembly.dll+984E19: CC                    - int 3 
+GameAssembly.dll+984E1A: CC                    - int 3 
+GameAssembly.dll+984E1B: CC                    - int 3 
+GameAssembly.dll+984E1C: CC                    - int 3 
+GameAssembly.dll+984E1D: CC                    - int 3 
+GameAssembly.dll+984E1E: CC                    - int 3 
+GameAssembly.dll+984E1F: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+Breachers.Weapon.NetBreachingFoam.get_NET_Charges: 48 83 EC 28           - sub rsp,28
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+984E24: 48 8B 41 40           - mov rax,[rcx+40]
+GameAssembly.dll+984E28: 48 85 C0              - test rax,rax
+GameAssembly.dll+984E2B: 74 08                 - je GameAssembly.dll+984E35
+GameAssembly.dll+984E2D: 8B 40 3C              - mov eax,[rax+3C]
+GameAssembly.dll+984E30: 48 83 C4 28           - add rsp,28
+GameAssembly.dll+984E34: C3                    - ret 
+GameAssembly.dll+984E35: 48 8D 0D 9C 4C CB 03  - lea rcx,[GameAssembly.dll+4639AD8]
+GameAssembly.dll+984E3C: 48 89 5C 24 20        - mov [rsp+20],rbx
+GameAssembly.dll+984E41: E8 CA 94 9D FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+984E46: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Get Rid Of Flashbangs"</Description>
+      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"1g"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Breachers
+  Version: 
+  Date   : 2024-02-12
+  Author : dcleo
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,GameAssembly.dll,48 83 EC 28 48 8B 41 40 48 85 C0 74 0B 8B 80 A4 02) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub rsp,28
+  mov rax,[rcx+40]
+  jmp return
+
+INJECT:
+db b8 01 00 00 00 c3
+
+
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 48 83 EC 28 48 8B 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Breachers.NetCharacter.get_NET_FlashTimer
+
+GameAssembly.dll+C5FF56: CC                    - int 3 
+GameAssembly.dll+C5FF57: CC                    - int 3 
+GameAssembly.dll+C5FF58: CC                    - int 3 
+GameAssembly.dll+C5FF59: CC                    - int 3 
+GameAssembly.dll+C5FF5A: CC                    - int 3 
+GameAssembly.dll+C5FF5B: CC                    - int 3 
+GameAssembly.dll+C5FF5C: CC                    - int 3 
+GameAssembly.dll+C5FF5D: CC                    - int 3 
+GameAssembly.dll+C5FF5E: CC                    - int 3 
+GameAssembly.dll+C5FF5F: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+Breachers.NetCharacter.get_NET_FlashTimer: 48 83 EC 28           - sub rsp,28
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+C5FF64: 48 8B 41 40           - mov rax,[rcx+40]
+GameAssembly.dll+C5FF68: 48 85 C0              - test rax,rax
+GameAssembly.dll+C5FF6B: 74 0B                 - je GameAssembly.dll+C5FF78
+GameAssembly.dll+C5FF6D: 8B 80 A4 02 00 00     - mov eax,[rax+000002A4]
+GameAssembly.dll+C5FF73: 48 83 C4 28           - add rsp,28
+GameAssembly.dll+C5FF77: C3                    - ret 
+GameAssembly.dll+C5FF78: 48 8D 0D 59 9B 9D 03  - lea rcx,[GameAssembly.dll+4639AD8]
+GameAssembly.dll+C5FF7F: 48 89 5C 24 20        - mov [rsp+20],rbx
+GameAssembly.dll+C5FF84: E8 87 E3 6F FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+C5FF89: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"2s"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Breachers
+  Version: 
+  Date   : 2024-02-12
+  Author : dcleo
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,GameAssembly.dll,48 83 EC 28 48 8B 41 40 48 85 C0 74 0B 89 90 A4 02) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub rsp,28
+  mov rax,[rcx+40]
+  jmp return
+
+INJECT:
+db b8 01 00 00 00 c3
+
+
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 48 83 EC 28 48 8B 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Breachers.NetCharacter.set_NET_FlashTimer
+
+GameAssembly.dll+C5FFD6: CC                    - int 3 
+GameAssembly.dll+C5FFD7: CC                    - int 3 
+GameAssembly.dll+C5FFD8: CC                    - int 3 
+GameAssembly.dll+C5FFD9: CC                    - int 3 
+GameAssembly.dll+C5FFDA: CC                    - int 3 
+GameAssembly.dll+C5FFDB: CC                    - int 3 
+GameAssembly.dll+C5FFDC: CC                    - int 3 
+GameAssembly.dll+C5FFDD: CC                    - int 3 
+GameAssembly.dll+C5FFDE: CC                    - int 3 
+GameAssembly.dll+C5FFDF: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+Breachers.NetCharacter.set_NET_FlashTimer: 48 83 EC 28           - sub rsp,28
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+C5FFE4: 48 8B 41 40           - mov rax,[rcx+40]
+GameAssembly.dll+C5FFE8: 48 85 C0              - test rax,rax
+GameAssembly.dll+C5FFEB: 74 0B                 - je GameAssembly.dll+C5FFF8
+GameAssembly.dll+C5FFED: 89 90 A4 02 00 00     - mov [rax+000002A4],edx
+GameAssembly.dll+C5FFF3: 48 83 C4 28           - add rsp,28
+GameAssembly.dll+C5FFF7: C3                    - ret 
+GameAssembly.dll+C5FFF8: 48 8D 0D D9 9A 9D 03  - lea rcx,[GameAssembly.dll+4639AD8]
+GameAssembly.dll+C5FFFF: 48 89 5C 24 20        - mov [rsp+20],rbx
+GameAssembly.dll+C60004: E8 07 E3 6F FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+C60009: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"Turning"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"GameAssembly.dll"+045F8670</Address>
+      <Offsets>
+        <Offset>1F8</Offset>
+        <Offset>278</Offset>
+        <Offset>60</Offset>
+        <Offset>578</Offset>
+        <Offset>B8</Offset>
+        <Offset>40</Offset>
+        <Offset>10</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11</ID>
+      <Description>"Chrome Gun"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Breachers
+  Version: 
+  Date   : 2024-02-13
+  Author : dcleo
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,GameAssembly.dll,48 83 EC 28 48 8B 41 40 48 85 C0 74 0B 8B 80 AC) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub rsp,28
+  mov rax,[rcx+40]
+  jmp return
+
+INJECT:
+db b8 01 00 00 00 c3
+
+
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 48 83 EC 28 48 8B 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Breachers.Weapon.NetWeapon.get_NET_SkinId
+
+GameAssembly.dll+711166: CC                    - int 3 
+GameAssembly.dll+711167: CC                    - int 3 
+GameAssembly.dll+711168: CC                    - int 3 
+GameAssembly.dll+711169: CC                    - int 3 
+GameAssembly.dll+71116A: CC                    - int 3 
+GameAssembly.dll+71116B: CC                    - int 3 
+GameAssembly.dll+71116C: CC                    - int 3 
+GameAssembly.dll+71116D: CC                    - int 3 
+GameAssembly.dll+71116E: CC                    - int 3 
+GameAssembly.dll+71116F: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+Breachers.Weapon.NetWeapon.get_NET_SkinId: 48 83 EC 28           - sub rsp,28
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+711174: 48 8B 41 40           - mov rax,[rcx+40]
+GameAssembly.dll+711178: 48 85 C0              - test rax,rax
+GameAssembly.dll+71117B: 74 0B                 - je GameAssembly.dll+711188
+GameAssembly.dll+71117D: 8B 80 AC 00 00 00     - mov eax,[rax+000000AC]
+GameAssembly.dll+711183: 48 83 C4 28           - add rsp,28
+GameAssembly.dll+711187: C3                    - ret 
+GameAssembly.dll+711188: 48 8D 0D 49 89 F2 03  - lea rcx,[GameAssembly.dll+4639AD8]
+GameAssembly.dll+71118F: 48 89 5C 24 20        - mov [rsp+20],rbx
+GameAssembly.dll+711194: E8 77 D1 C4 FF        - call GameAssembly.il2cpp_field_static_set_value+6390
+GameAssembly.dll+711199: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [rsp+10],rbp</Description>
+      <AddressString>GameAssembly.dll+77FD80</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>6C</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of push rbp</Description>
+      <AddressString>GameAssembly.dll+77E9C0</AddressString>
+      <Before>
+        <Byte>FB</Byte>
+        <Byte>BD</Byte>
+        <Byte>FF</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>40</Byte>
+        <Byte>55</Byte>
+      </Actual>
+      <After>
+        <Byte>53</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>6C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsp+18],rdi</Description>
+      <AddressString>GameAssembly.dll+946B70</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>55</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>EC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of inc r8d</Description>
+      <AddressString>GameAssembly.dll+D96FA0</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>C3</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,00000001</Description>
+      <AddressString>GameAssembly.dll+1010930</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>41</Byte>
+        <Byte>40</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>randomvalue</Name>
+      <Address>68EB0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
